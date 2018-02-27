@@ -28,5 +28,7 @@ void print_s(va_list ap)
 
 void print_p(va_list ap)
 {
-	_putchar(va_arg(ap, char));
+	(void) ap;
+/*	_putchar(va_arg(ap, char)); */
 }
+

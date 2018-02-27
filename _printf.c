@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 /**
-* printf - prints a string with functionality
+* _printf - prints a string with functionality
 * @format: the string to print
 *
 * Return: 0 Always success
@@ -10,15 +10,69 @@
 
 int _printf(const char *format, ...)
 {
-	int i;
-	unsigned int p_char;
-	char *p_string;
+	int i, j, k; /* counters */
+/*	unsigned int p_char;
+	char *p_string; */
 	va_list ap;
-	const char *string;
+	pt_t types[] = {
+		{"c", print_c},
+		{"s", print_s},
+		{"%", print_p},
+		{NULL, NULL},
+	};
 
 	va_start(ap, format);
 
+	i = 0;
+	while (format != NULL && format[i] != '\0')
+	{
+		if (format[i] == '%')
+		{
+			k = i;
+			while (k == '%')
+			{
+				if (k + 1 == '%')
+					_putchar('%');
+				k++;
+			}
+			i++;
+			j = 0;
+			while (types[j].fs != NULL)
+			{
+				if (*(types[j].fs) == format[i])
+					types[j].f(ap);
+				j++;
+			}
+			i++;
+		}
+		_putchar(format[i]);
+		i++;
+	}
+/*
+		FIND %
+		       IF %
+			CHECK NEXT CHAR
+			IF C
+			CALL THE C FUNCTION
+			IF S
+			CALL THE S FUNCTION
+		j = 0;
+		while (types[j].fs != NULL)gg
+		{
+			if (format[i] == *(types[j].fs))
+				{
+					((types[j].f)(ap));
+				}
+		}
+		j++;
+	}
+	i++;
+*/
+/*	const char *string;
 	string = format;
+
+
+
 	i = 0;
 	while (string[i] != '\0')
 	{
@@ -30,26 +84,22 @@ int _printf(const char *format, ...)
 		if (string[i] == '%')
 		{
 			i++;
-			switch(string[i])
+			switch (string[i])
 			{
-				case 'c' : p_char = va_arg(ap, int);
-					   _putchar(p_char);
-					   break;
-				case 's' : p_string = va_arg(ap, char *);
-					   _puts(p_string);
-					   break;
+			case 'c':
+				p_char = va_arg(ap, int);
+				_putchar(p_char);
+				break;
+			case 's':
+				p_string = va_arg(ap, char *);
+				_puts(p_string);
+				break;
 			}
 			i++;
 		}
 	}
+
+*/
 	va_end(ap);
 	return (0);
-/*	int len;
-
-	len = _strlen(format);
-	printf("len in _printf is %d\n", len);
-	write(1, format, len);
-	return(len);
-*/
 }
-
