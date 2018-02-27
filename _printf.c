@@ -10,19 +10,18 @@
 
 int _printf(const char *format, ...)
 {
-	int i, j, k; /* counters */
-/*	unsigned int p_char;
-	char *p_string; */
+	int i, j, k;
 	va_list ap;
 	pt_t types[] = {
 		{"c", print_c},
 		{"s", print_s},
 		{"%", print_p},
+		{"d", print_d},
+		{"i", print_d},
 		{NULL, NULL},
 	};
 
 	va_start(ap, format);
-
 	i = 0;
 	while (format != NULL && format[i] != '\0')
 	{
@@ -48,58 +47,6 @@ int _printf(const char *format, ...)
 		_putchar(format[i]);
 		i++;
 	}
-/*
-		FIND %
-		       IF %
-			CHECK NEXT CHAR
-			IF C
-			CALL THE C FUNCTION
-			IF S
-			CALL THE S FUNCTION
-		j = 0;
-		while (types[j].fs != NULL)gg
-		{
-			if (format[i] == *(types[j].fs))
-				{
-					((types[j].f)(ap));
-				}
-		}
-		j++;
-	}
-	i++;
-*/
-/*	const char *string;
-	string = format;
-
-
-
-	i = 0;
-	while (string[i] != '\0')
-	{
-		if (string[i] != '%' && string[i] != '\0')
-		{
-			_putchar(string[i]);
-			i++;
-		}
-		if (string[i] == '%')
-		{
-			i++;
-			switch (string[i])
-			{
-			case 'c':
-				p_char = va_arg(ap, int);
-				_putchar(p_char);
-				break;
-			case 's':
-				p_string = va_arg(ap, char *);
-				_puts(p_string);
-				break;
-			}
-			i++;
-		}
-	}
-
-*/
 	va_end(ap);
-	return (0);
+	return (i);
 }
