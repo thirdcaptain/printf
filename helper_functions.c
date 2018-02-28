@@ -9,11 +9,15 @@
 int printnumber(int n)
 {
 	int count = 0;
+	int num;
+	int digit;
+	int i;
 
 	if (n < 0)
 	{
 		count++;
-		_putchar('-');
+		if (n != -2147483648)
+			_putchar('-');
 		n = -n;
 	}
 
@@ -23,15 +27,20 @@ int printnumber(int n)
 		_putchar('0');
 	}
 
-	if (n / 10)
+	i = 1;
+	while ((n / i) > 10)
 	{
-		count++;
-		printnumber(n / 10);
+		i = i * 10;
 	}
-	count++;
-	_putchar(n % 10 + '0');
-
-	return (count); /* prints one character everytime function is used */
+	while (i > 0)
+	{
+		num = n / i;
+		digit = num % 10;
+		count++;
+		_putchar(digit + '0');
+		i = (i / 10);
+	}
+	return (count);
 }
 
 /**
