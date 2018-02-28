@@ -22,8 +22,8 @@ typedef struct print_type {
 
 void print_c(va_list ap);
 void print_s(va_list ap);
+void print_d(va_list ap);
 void print_p(va_list ap);
 void printnumber(int n);
-void print_d(va_list ap);
 
 #endif

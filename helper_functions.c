@@ -49,16 +49,19 @@ void print_s(va_list ap)
  * @ap: argument parameters
  */
 
+
 void print_p(va_list ap)
 {
-	(void) ap;
-/*	_putchar(va_arg(ap, char)); */
+/*	_putchar(va_arg(ap,int));*/
+	(void)ap;
+	_putchar('%');
 }
 
 /**
  * print_d - prints decimals and integers
  * @ap: argument parameters
- */
+*/
+
 
 void print_d(va_list ap)
 {

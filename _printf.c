@@ -10,13 +10,13 @@
 
 int _printf(const char *format, ...)
 {
-	int i, j, k;
+	int i, j;
 	va_list ap;
 	pt_t types[] = {
 		{"c", print_c},
 		{"s", print_s},
-		{"%", print_p},
 		{"d", print_d},
+		{"%", print_p},
 		{"i", print_d},
 		{NULL, NULL},
 	};
@@ -27,13 +27,6 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			k = i;
-			while (k == '%')
-			{
-				if (k + 1 == '%')
-					_putchar('%');
-				k++;
-			}
 			i++;
 			j = 0;
 			while (types[j].fs != NULL)
@@ -44,8 +37,11 @@ int _printf(const char *format, ...)
 			}
 			i++;
 		}
-		_putchar(format[i]);
-		i++;
+		if (format[i] != '%')
+		{
+			_putchar(format[i]);
+			i++;
+		}
 	}
 	va_end(ap);
 	return (i);
