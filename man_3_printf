@@ -1,0 +1,27 @@
+.TH man 1 "28 Feb 2018" "1.00" "printf man page"
+.SH NAME
+.B printf 
+.SH SYNOPSIS
+type code that we used here?
+.SH DESCRIPTION
+This is a printf program created for Holberton School, which is a project-based alternative to college for the next generation of software engineers.
+.SH CONVERSION SPECIFIERS 
+.B These characters specify the type of conversion that can be applied.
+
+   c - The int argument is converted to an unsigned char and the resulting character is displayed.
+
+   s - This const char * argument is expected to be a pointer to an array of character types. The characters from the array are written but this doesn't contain the ending null byte ('\0').
+
+   % - Writes '%' and no argument is converted. The complete conversion specifier is '%%'.
+ 
+   d, i
+     -  This converts int arguments to signed decimal notation.
+    
+.SH SEE ALSO
+.I peerlearning(2), projectbased(2), fullstack(2), printf(3), 
+.SH BUGS
+No known bugs. The code is beautiful and near perfect.
+.SH AUTHOR
+Victor Nguyen and Isaac Wong
+ 2018 Team VI, Inc.
+b
