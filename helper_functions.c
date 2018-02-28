@@ -9,32 +9,33 @@
 int printnumber(int n)
 {
 	int count = 0;
-	int num;
-	int digit;
-	int i;
+	unsigned int num;
+	unsigned int digit;
+	unsigned int i;
+	unsigned int long_num;
 
+	long_num = n;
 	if (n < 0)
 	{
 		count++;
-		if (n != -2147483648)
-			_putchar('-');
-		n = -n;
+		long_num = long_num * -1;
+		_putchar('-');
 	}
 
-	if (n == 0)
+	if (long_num == 0)
 	{
 		count++;
 		_putchar('0');
 	}
 
 	i = 1;
-	while ((n / i) > 10)
+	while ((long_num / i) > 10)
 	{
 		i = i * 10;
 	}
 	while (i > 0)
 	{
-		num = n / i;
+		num = long_num / i;
 		digit = num % 10;
 		count++;
 		_putchar(digit + '0');
