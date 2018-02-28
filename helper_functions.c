@@ -58,8 +58,9 @@ int print_s(va_list ap)
 	int i;
 
 	str = (va_arg(ap, char*));
-        for (i = 0; str[i]; i++)
-                _putchar(str[i]);
+	for (i = 0; str[i]; i++)
+		_putchar(str[i]);
+
 	return (i);
 }
 
