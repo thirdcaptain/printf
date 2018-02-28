@@ -10,7 +10,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i, j;
+	int i, j, counter = 0;
 	va_list ap;
 	pt_t types[] = {
 		{"c", print_c},
@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 			while (types[j].fs != NULL)
 			{
 				if (*(types[j].fs) == format[i])
-					types[j].f(ap);
+					counter += types[j].f(ap);
 				j++;
 			}
 			i++;
@@ -40,9 +40,10 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			_putchar(format[i]);
+			counter++;
 			i++;
 		}
 	}
 	va_end(ap);
-	return (i);
+	return (counter);
 }

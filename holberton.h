@@ -15,15 +15,16 @@ int _strlen(const char *s);
  * @f: function pointer
  */
 
-typedef struct print_type {
+typedef struct print_type
+{
 	char *fs;
-	void (*f)(va_list);
+	int (*f)(va_list);
 } pt_t;
 
-void print_c(va_list ap);
-void print_s(va_list ap);
-void print_d(va_list ap);
-void print_p(va_list ap);
-void printnumber(int n);
+int print_c(va_list ap);
+int print_s(va_list ap);
+int print_d(va_list ap);
+int print_p(va_list ap);
+int printnumber(int n);
 
 #endif
