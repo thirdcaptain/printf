@@ -36,4 +36,5 @@ Nguyen](http://github.com/vmdn23) at [Holberton
 School](http://holbertonschool.com).
 
 All files were created and compiled on `Ubuntu 14.04.4 LTS` using `GCC 4.8.4` with
-the following flags: `-Wall -Werror -Wextra -Wno-format -pedantic`.
+the following flags:
+`-Wall -Werror -Wextra -Wno-format -pedantic`.
