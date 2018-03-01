@@ -26,10 +26,11 @@ int printnumber(int n)
 	{
 		count++;
 		_putchar('0');
+		return (count);
 	}
 
 	i = 1;
-	while ((long_num / i) > 10)
+	while ((long_num / i) > 9)
 	{
 		i = i * 10;
 	}
@@ -68,6 +69,8 @@ int print_s(va_list ap)
 	int i;
 
 	str = (va_arg(ap, char*));
+	if (str == NULL)
+		str = "(null)";
 	for (i = 0; str[i]; i++)
 		_putchar(str[i]);
 
