@@ -13,11 +13,10 @@ printed (int).
 ### Format Specifiers
 Function name | Description | Format Specifier
 --- | --- | ---
-`printnumber` | Prints a number | `%0`
 `print_c` | Prints a character | `%c`
 `print_s` | Prints a 0000000 | `%d`
-`print_p` | Prints a % | `%0`
-`print_d` | Prints  | `%0`
+`print_p` | Prints a % | `%%`
+`print_d` | Prints  | `%d` & `%i`
 ### Example Usage
 - `_printf("Hello, world\n")` *prints "Hello, world" followed by a new line*
 - `_printf("Hello %s", "Holberton")` *prints "Hello, Holberton"*
@@ -26,13 +25,13 @@ Function name | Description | Format Specifier
 ### Files
 File Name | Description
 --- | ---
-`000000` | Produces output according to format
-`000000` | Writes a character (1 byte) to stdout
+`_printf.c` | Produces an output according to specifiers 
+`helper_function.c` | File containing specifier functions
 `holberton.h` | Header file with function prototypes and struct
-`000000` | Parses the arguments of `_printf` and calls corresponding function
+`_putchar.c` | Function to write a char to standard output
 ### About
-This project was created by [Isaac Wong](http://github.com/thirdcaptin) and [Victor
-Nguyen](http://github.com/vmdn23) at [Holberton
+This project was created by Team VI - [Victor Nguyen](http://github.com/vmdn23) and 
+[Isaac Wong](http://github.com/thirdcaptin) at [Holberton
 School](http://holbertonschool.com).
 
 All files were created and compiled on `Ubuntu 14.04.4 LTS` using `GCC 4.8.4` with
